@@ -1,3 +1,13 @@
+#!/bin/bash
+while true; do
+    read -p "Have you set the lock screen shortcut to Super+Esc yet?" yn
+    case $yn in
+        [Yy]* ) break;;
+        [Nn]* ) echo "Please do that first." && exit;;
+        * ) echo "Please answer y or n.";;
+    esac
+done
+
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['<Control><Super>Up', '<Control><Super>k']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['<Control><Super>Down', '<Control><Super>j']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-left "['<Control><Super>Left', '<Control><Super>h']"
@@ -19,7 +29,7 @@ echo '[+] added keybindings to allow windows moving to other monitors with Contr
 gsettings set org.gnome.mutter.keybindings toggle-tiled-right "['<Super>Right', '<Super>l']"
 gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Super>Right', '<Super>h']"
 gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>Up', '<Super>k']"
-gsettings set org.gnome.desktop.wm.keybindings unmaximize "['<Super>Down', '<Super>j']"
+gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super>Down', '<Super>j']"
 echo '[+] added keybindgs to allow window tiling with Super+(arrow keys/hjkl)'
 
 gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t', '<Control><Alt>t']"
