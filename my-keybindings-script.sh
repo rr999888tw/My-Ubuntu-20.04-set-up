@@ -1,12 +1,12 @@
 #!/bin/bash
-while true; do
-    read -p "Have you set the lock screen shortcut to Super+Esc yet?" yn
-    case $yn in
-        [Yy]* ) break;;
-        [Nn]* ) echo "Please do that first." && exit;;
-        * ) echo "Please answer y or n.";;
-    esac
-done
+#while true; do
+    #read -p "Have you set the lock screen shortcut to Super+Esc yet?" yn
+    #case $yn in
+        #[Yy]* ) break;;
+        #[Nn]* ) echo "Please do that first." && exit;;
+        #* ) echo "Please answer y or n.";;
+    #esac
+#done
 
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-up "['<Control><Super>Up', '<Control><Super>k']"
 gsettings set org.gnome.desktop.wm.keybindings switch-to-workspace-down "['<Control><Super>Down', '<Control><Super>j']"
@@ -27,8 +27,8 @@ gsettings set org.gnome.desktop.wm.keybindings move-to-monitor-down "['<Control>
 echo '[+] added keybindings to allow windows moving to other monitors with Contrl+Alt+(arrow keys/h,j,k,l)'
 
 gsettings set org.gnome.mutter.keybindings toggle-tiled-right "['<Super>Right', '<Super>l']"
-gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Super>Right', '<Super>h']"
-gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>Up', '<Super>k']"
+gsettings set org.gnome.mutter.keybindings toggle-tiled-left "['<Super>Left', '<Super>h']"
+gsettings set org.gnome.desktop.wm.keybindings toggle-maximized "['<Super>Up', '<Super>k', '<Super>m']"
 gsettings set org.gnome.desktop.wm.keybindings minimize "['<Super>Down', '<Super>j']"
 echo '[+] added keybindgs to allow window tiling with Super+(arrow keys/hjkl)'
 
@@ -36,4 +36,5 @@ gsettings set org.gnome.settings-daemon.plugins.media-keys terminal "['<Super>t'
 gsettings set org.gnome.settings-daemon.plugins.media-keys www "['<Super>b']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys home "['<Super>f']"
 gsettings set org.gnome.settings-daemon.plugins.media-keys email "['<Super>e']"
+gsettings set org.gnome.settings-daemon.plugins.media-keys screensaver "['<Super>Escape']"
 echo '[+] added shortcuts to launch applications, inlcuding Browser, File manager, email client, terminal'
